@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Acquisens - Backoffice",
-  description: "Backoffice de gestion Acquisens",
+  title: "AllInConnect",
+  description: "Inscription à AllInConnect",
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },

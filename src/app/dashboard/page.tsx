@@ -246,7 +246,7 @@ export default function DashboardPage() {
             <div className="flex items-center gap-3">
               <Building2 className="h-8 w-8 text-red-600" />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Acquisens</h1>
+                <h1 className="text-2xl font-bold text-gray-900">AllInConnect</h1>
                 <p className="text-sm text-gray-600">Backoffice de gestion</p>
               </div>
             </div>
