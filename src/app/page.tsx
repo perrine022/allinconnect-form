@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { authSignupService } from '@/services/authApi';
 import { UserRegistrationRequest, UserType } from '@/types';
 
-export default function HomePage() {
+function RegistrationForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const referralCode = searchParams.get('code');
@@ -19,6 +19,7 @@ export default function HomePage() {
     password: '',
     confirmPassword: '',
     birthDate: '',
+    subscriptionPlanId: 'unknown',
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -115,10 +116,16 @@ export default function HomePage() {
         city: formData.postalCode, // Utiliser le code postal pour city
         birthDate: formData.birthDate,
         userType: UserType.CLIENT,
+        subscriptionPlanId: formData.subscriptionPlanId, // Envoyer "unknown" tel quel
         referralCode: referralCode,
       };
 
-      await authSignupService.signup(registrationData);
+      const response = await authSignupService.signup(registrationData);
+      
+      // Stocker le token JWT si présent dans la réponse
+      if (response?.token) {
+        localStorage.setItem('authToken', response.token);
+      }
 
       // Rediriger vers la page de remerciement avec le code de parrainage
       router.push(`/thank-you?code=${referralCode}`);
@@ -331,5 +338,17 @@ export default function HomePage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    }>
+      <RegistrationForm />
+    </Suspense>
   );
 }

@@ -24,6 +24,13 @@ export interface SigninResponse {
   [key: string]: any;
 }
 
+// Interface pour la réponse d'inscription
+export interface SignupResponse {
+  token?: string;
+  user?: User;
+  [key: string]: any;
+}
+
 // Interface pour le mot de passe oublié
 export interface ForgotPasswordDto {
   email: string;
@@ -37,7 +44,7 @@ export interface ResetPasswordDto {
 
 export const authSignupService = {
   // Créer un nouvel utilisateur
-  signup: async (dto: UserRegistrationRequest) => {
+  signup: async (dto: UserRegistrationRequest): Promise<SignupResponse> => {
     try {
       console.log("🔵 [AUTH SIGNUP API] Envoi de la requête d'inscription:", {
         email: dto.email,
@@ -47,7 +54,7 @@ export const authSignupService = {
         endpoint: "/register",
       });
 
-      const response = await authApi.post("/register", dto);
+      const response = await authApi.post<SignupResponse>("/register", dto);
 
       console.log("✅ [AUTH SIGNUP API] Inscription réussie:", {
         status: response.status,
