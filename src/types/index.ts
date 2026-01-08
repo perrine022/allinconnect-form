@@ -77,9 +77,9 @@ export interface UserRegistrationRequest {
   address?: string;
   city?: string;
   birthDate?: string;
-  userType: UserType;
+  userType: UserType | string;
   subscriptionType?: SubscriptionType;
-  subscriptionPlanId?: number | string;
+  subscriptionPlanId?: number | string | null;
   profession?: string;
   category?: string;
   referralCode?: string;

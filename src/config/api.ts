@@ -4,12 +4,12 @@
  * Cette configuration définit l'URL de base de l'API backend.
  * Elle peut être surchargée via la variable d'environnement NEXT_PUBLIC_API_URL.
  * 
- * Production: https://acquisens-back.onrender.com
- * Local (commenté): http://localhost:8080
+ * Production: https://allinconnect-back-1.onrender.com
+ * Local: http://localhost:8080
  */
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://acquisens-back.onrender.com";
 // Pour le développement local, décommenter la ligne ci-dessous et commenter celle du dessus:
 // export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://allinconnect-back-1.onrender.com";
 
 /**
  * URL complète pour les endpoints d'authentification
