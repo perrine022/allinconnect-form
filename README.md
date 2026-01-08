@@ -120,17 +120,6 @@ L'application communique avec l'API backend. Les endpoints principaux utilisés 
   - Payload : `UserRegistrationRequest` (email, password, firstName, lastName, address, city, birthDate, userType, referralCode, etc.)
   - Le code de parrainage est inclus dans la requête
 
-### Utilisateurs
-
-- `GET /api/v1/users` - Liste des utilisateurs
-- `GET /api/v1/users/profile` - Profil de l'utilisateur connecté
-- `PUT /api/v1/users/profile` - Mise à jour du profil
-
-### Entreprises
-
-- `GET /api/companies` - Liste des entreprises
-- `GET /api/companies/{id}` - Détails d'une entreprise
-
 ## 🎨 Interface
 
 L'interface utilise Tailwind CSS pour un design moderne et responsive :
@@ -190,4 +179,3 @@ Propriétaire - AllInConnect
 ## 👥 Contribution
 
 Pour contribuer au projet, veuillez créer une branche depuis `main` et soumettre une pull request.
-# allinconnect-form
