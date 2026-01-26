@@ -2,7 +2,6 @@
 
 import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
 
 function ThankYouContent() {
   const searchParams = useSearchParams();
@@ -41,15 +40,6 @@ function ThankYouContent() {
               Code de parrainage utilisé : <span className="font-semibold text-gray-700">{referralCode}</span>
             </p>
           )}
-
-          <div className="mt-6">
-            <Link
-              href="/dashboard"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              Accéder au tableau de bord
-            </Link>
-          </div>
         </div>
       </div>
     </div>
